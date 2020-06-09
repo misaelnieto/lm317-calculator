@@ -49,7 +49,7 @@ class App extends React.Component {
           <div className="container px-5 py-24 mx-auto flex sm:flex-no-wrap flex-wrap">
             <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
               <object type="image/svg+xml" data={circuit}>
-                  <img src={circuit} />
+                  <img alt="Fallback SVG tag" src={circuit} />
               </object>
             </div>
             <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
