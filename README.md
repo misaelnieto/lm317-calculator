@@ -1,6 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LM327 calculator
 
-## Available Scripts
+This is a calculator for the LM327 voltage regulator.
+
+## Instructions from the Create React App
 
 In the project directory, you can run:
 
