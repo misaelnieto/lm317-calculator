@@ -43,7 +43,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <h1 className="text-gray-900 text-3xl title-font font-medium mb-4">LM317 simulator</h1>
+          <h1 className="text-gray-900 text-3xl title-font font-medium mb-4">LM317 Calculator</h1>
         </header>
         <section className="text-gray-700 body-font relative">
           <div className="container px-5 py-24 mx-auto flex sm:flex-no-wrap flex-wrap">
