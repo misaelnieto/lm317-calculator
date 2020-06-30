@@ -1,6 +1,6 @@
-# LM327 calculator
+# LM317 calculator
 
-This is a calculator for the LM327 voltage regulator.
+This is a calculator for the LM317 voltage regulator.
 
 ## Instructions from the Create React App
 
