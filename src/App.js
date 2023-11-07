@@ -46,7 +46,7 @@ class App extends React.Component {
           <h1 className="text-gray-900 text-3xl title-font font-medium mb-4">LM317 Calculator</h1>
         </header>
         <section className="text-gray-700 body-font relative">
-          <div className="container px-5 py-24 mx-auto flex sm:flex-no-wrap flex-wrap">
+          <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
             <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
               <object type="image/svg+xml" data={circuit}>
                   <img alt="Fallback SVG tag" src={circuit} />
