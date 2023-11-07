@@ -1,74 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    viewBox="0 0 17796.999 7307.0001"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="LM317.svg"
    id="svg543"
-   xml:space="preserve"
    stroke-linejoin="round"
    stroke-width="30"
    fill-rule="evenodd"
    height="280"
    width="680"
-   version="1.2"><metadata
-     id="metadata547"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title><cc:license
-           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" /></cc:Work><cc:License
-         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/"><cc:permits
-           rdf:resource="http://creativecommons.org/ns#Reproduction" /><cc:permits
-           rdf:resource="http://creativecommons.org/ns#Distribution" /><cc:requires
-           rdf:resource="http://creativecommons.org/ns#Notice" /><cc:requires
-           rdf:resource="http://creativecommons.org/ns#Attribution" /><cc:permits
-           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" /><cc:requires
-           rdf:resource="http://creativecommons.org/ns#ShareAlike" /></cc:License></rdf:RDF></metadata><sodipodi:namedview
-     inkscape:current-layer="svg543"
-     inkscape:window-maximized="1"
-     inkscape:window-y="27"
-     inkscape:window-x="0"
-     inkscape:cy="96.21193"
-     inkscape:cx="438.96368"
-     inkscape:zoom="1.2004836"
-     inkscape:document-units="px"
-     inkscape:showpageshadow="true"
-     borderlayer="false"
-     showborder="true"
-     inkscape:pagecheckerboard="false"
-     scale-x="27.45833"
-     fit-margin-bottom="0"
-     fit-margin-right="0"
-     fit-margin-left="0"
-     fit-margin-top="0"
-     units="px"
-     showgrid="false"
-     id="namedview545"
-     inkscape:window-height="1016"
-     inkscape:window-width="1920"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
-     bordercolor="#666666"
-     pagecolor="#ffffff" /><defs
-     id="defs8"
-     class="ClipPathGroup" /><defs
-     id="defs25" /><defs
-     id="defs64" /><defs
-     id="defs68"
-     class="TextShapeIndex" /><defs
-     id="defs100"
-     class="EmbeddedBulletChars" /><defs
-     id="defs102"
-     class="TextEmbeddedBitmaps" /><g
+   version="1.2"
+   throwIfNamespace="false">
+     <defs id="defs8" class="ClipPathGroup" />
+     <defs id="defs25" />
+     <defs id="defs64" />
+     <defs id="defs68" class="TextShapeIndex" />
+     <defs id="defs100" class="EmbeddedBulletChars" />
+     <defs id="defs102" class="TextEmbeddedBitmaps" />
+      <g
      transform="translate(-1897,-3257.588)"
      class="com.sun.star.drawing.CustomShape"
      id="g124"><g
