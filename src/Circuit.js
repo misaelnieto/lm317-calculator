@@ -1,7 +1,4 @@
-// Circuit.js
-import React from "react";
-
-function nFormatter(num, digits) {
+export function nFormatter(num, digits) {
   const lookup = [
     { value: 1e-12, symbol: " p" },
     { value: 1e-9, symbol: " n" },
@@ -27,81 +24,82 @@ function nFormatter(num, digits) {
     : "0";
 }
 
-const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
+
+export function Circuit({Vin, c_in, i_adj, r_1, r_2, c_out, Vout}) {
   return (
-    <svg height="320" width="610" version="1.2" name="SVG LM317 Schematic">
+    <svg version="1.2" name="SVG LM317 Schematic" viewBox="0 0 600 320">
       <style>
         {`
-        #background {
-          fill: #fff;
-        }
-        #lm317 rect{
-          fill: skyblue; stroke: blue; stroke-width: 3;
-        }
-    
-        #lm317 text {
-          font-size: 1.2em;
-          font-weight: bold;
-          stroke: blue;
-        }
-    
-    
-        #V_in circle {
-          stroke: #000;
-          stroke-width: 5px;
-          fill: #e8e490;
-        }
-    
-        #V_in .plus-minus, #V_out .plus-minus {
-          font-weight: bold;
-        }
-    
-        #V_out .readout-bg {
-          stroke: #000;
-          stroke-width: 4px;
-          fill: #000;
-        }
-        #V_out .readout-text {
-          fill: #66ff94;
-          font-family: monospace;
-          font-size: smaller;
-        }
-    
-        #I_adj {
-          stroke: blue;
-          stroke-width: 2px;
-        }
-        #arrow {
-          stroke: blue;
-          fill: blue;
-        }
-    
-        .gnd path, .connector{
-          stroke: black;
-          stroke-width: 4px;
-          fill: none;
-        }
+      #background {
+        fill: #fff;
+      }
+      #lm317 rect{
+        fill: skyblue; stroke: blue; stroke-width: 3;
+      }
+  
+      #lm317 text {
+        font-size: 1.2em;
+        font-weight: bold;
+        stroke: blue;
+      }
+  
+  
+      #V_in circle {
+        stroke: #000;
+        stroke-width: 5px;
+        fill: #e8e490;
+      }
+  
+      #V_in .plus-minus, #V_out .plus-minus {
+        font-weight: bold;
+      }
+  
+      #V_out .readout-bg {
+        stroke: #000;
+        stroke-width: 4px;
+        fill: #000;
+      }
+      #V_out .readout-text {
+        fill: #66ff94;
+        font-family: monospace;
+        font-size: smaller;
+      }
+  
+      #I_adj {
+        stroke: blue;
+        stroke-width: 2px;
+      }
+      #arrow {
+        stroke: blue;
+        fill: blue;
+      }
+  
+      .gnd path, .connector{
+        stroke: black;
+        stroke-width: 4px;
+        fill: none;
+      }
 
-        .actual_value {
-          font-family: monospace;
-          font-weight: light;
-          stroke: none;
-          fill: #f00;
-          font-size: 0.7em;
-        }
+      .actual_value {
+        font-family: monospace;
+        font-weight: light;
+        stroke: none;
+        fill: #f00;
+        font-size: 0.7em;
+      }
 
-        path.resistor {
-          fill: none;
-          stroke: #c8b080;
-          stroke-width: 4px;
-        }
+      path.resistor {
+        fill: none;
+        stroke: #c8b080;
+        stroke-width: 4px;
+      }
 
-        path.capacitor {
-          fill: none;
-          stroke-width: 4px;
-          stroke: #7b9971;
-        }
-      `}
+      path.capacitor {
+        fill: none;
+        stroke-width: 4px;
+        stroke: #7b9971;
+      }
+    `}
       </style>
       <defs>
         <marker
@@ -138,10 +136,10 @@ const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
         <path
           className="capacitor"
           d="M 16.5,0 v 40
-                M 0,38 h 35
-                M 0,53 q 17.5 -10, 35 0
-                M 16.5,49 v 40
-                "
+              M 0,38 h 35
+              M 0,53 q 17.5 -10, 35 0
+              M 16.5,49 v 40
+              "
         />
         <text x="40" y="30">
           C
@@ -157,10 +155,10 @@ const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
         <path
           className="capacitor"
           d="M 16.5,0 v 40
-                M 0,38 h 35
-                M 0,53 q 17.5 -10, 35 0
-                M 16.5,49 v 40
-                "
+              M 0,38 h 35
+              M 0,53 q 17.5 -10, 35 0
+              M 16.5,49 v 40
+              "
         />
         <text x="40" y="30">
           C
@@ -176,8 +174,8 @@ const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
         <path
           className="resistor"
           d="M 0,10 v 15
-             l -7.5,10 13,10 -13,10 13,10, -13,10 7.5,10 0,15
-            "
+           l -7.5,10 13,10 -13,10 13,10, -13,10 7.5,10 0,15
+          "
         />
         <text x="20" y="50">
           R
@@ -193,8 +191,8 @@ const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
         <path
           className="resistor"
           d="M 0,10 v 15
-             l -7.5,10 13,10 -13,10 13,10, -13,10 7.5,10 0,15
-            "
+           l -7.5,10 13,10 -13,10 13,10, -13,10 7.5,10 0,15
+          "
         />
         <text x="20" y="50">
           R
@@ -221,14 +219,14 @@ const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
           </tspan>
         </text>
         <text id="Vin_value" x="60" y="10" className="actual_value">
-          ({nFormatter(v_in, 2)} V)
+          ({nFormatter(Vin, 2)} V)
         </text>
         <path stroke="#000000" strokeWidth="4" d="M 50,0 v 25 M 50,75 v 25" />
       </g>
       <g id="V_out" transform="translate(500,63)">
         <circle className="readout-bg" cx="50" cy="50" r="25" />
         <text id="Vout_value" className="readout-text" dx="50" dy="52" textAnchor="middle">
-          {nFormatter(v_out, 2)} V
+          {nFormatter(Vout, 2)} V
         </text>
         <text x="60" y="10">
           V
@@ -261,10 +259,10 @@ const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
       <g className="gnd" transform="translate(45.5,280)">
         <path
           d="M 14.5,0 v 15
-                M 0,15 h 30
-                M 5,23 h 20
-                M 12.5,29 h 5
-                "
+              M 0,15 h 30
+              M 5,23 h 20
+              M 12.5,29 h 5
+              "
         />
       </g>
 
@@ -331,6 +329,5 @@ const Circuit = ({ v_in, c_in, i_adj, r_1, r_2, c_out, v_out }) => {
       />
     </svg>
   );
-};
+}
 
-export default Circuit;
