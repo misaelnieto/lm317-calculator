@@ -1,6 +1,6 @@
 import React from 'react';
 import './tailwind.generated.css';
-import circuit from './LM317.svg';
+import Circuit from './Circuit.js';
 import './App.css';
 
 
@@ -12,6 +12,13 @@ class App extends React.Component {
       R_1_scale: 1,
       R_2_value: 1,
       R_2_scale: 1E3,
+      V_in: 12,
+      C_in: 0.1e-6,
+      I_adj: 100e-6,
+      V_ref: 0.125,
+      R_1: 1e3,
+      R_2: 1e3,
+      C_out: 1e-6,
       V_out: 0
     };
     this.handleChange = this.handleChange.bind(this);
@@ -23,12 +30,12 @@ class App extends React.Component {
 
   computeVout () {
     const Vref = 1.25,  //volts
-          Iadj = 50e-6; //50 uA
+          Iadj = 100e-6; //50 uA
     let R1 = this.state.R_1_value * this.state.R_1_scale;
     let R2 = this.state.R_2_value * this.state.R_2_scale;
     
     this.setState({
-      V_out: Vref * (1 + R1/R2) + Iadj * R2
+      V_out: Vref * (1 + R2 / R1)
     });
   }
 
@@ -48,9 +55,15 @@ class App extends React.Component {
         <section className="text-gray-700 body-font relative">
           <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
             <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-              <object type="image/svg+xml" data={circuit}>
-                  <img alt="Fallback SVG tag" src={circuit} />
-              </object>
+              <Circuit
+                v_in={this.state.V_in}
+                c_in={this.state.C_in}
+                i_adj={this.state.I_adj}
+                r_1={this.state.R_1_value}
+                r_2={this.state.R_2_value}
+                c_out={this.state.C_out}
+                v_out={this.state.V_out}
+              />
             </div>
             <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
               {/* V_in */}

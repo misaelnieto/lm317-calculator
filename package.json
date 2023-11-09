@@ -17,12 +17,13 @@
   "scripts": {
     "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.generated.css",
     "prestart": "npm run build:tailwind",
-    "prebuild": "npm run build:tailwind",
+    "prebuild": "npm run build:tailwind && npm run lint && npm run svglint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "svglint": "./node_modules/.bin/svglint src/**/*.svg"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "eslint-plugin-react": "^7.33.2",
-    "react-devtools": "^4.28.5"
+    "react-devtools": "^4.28.5",
+    "svglint": "^2.6.0"
   }
 }
