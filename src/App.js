@@ -16,7 +16,7 @@ function clamp (num, min, max) {
 
 export default function App() {
   const [R1, setR1] = useState(240);
-  const [R2, setR2] = useState(1.2e3);
+  const [R2, setR2] = useState(720);
   const [Vin, setVin] = useState(12);
   const [Vout, setVout] = useState(computeVout());
 
