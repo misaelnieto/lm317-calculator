@@ -14,7 +14,8 @@
     "web-vitals": "^3.0.4"
   },
   "scripts": {
-    "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.generated.css",
+    "tailwind:watch": "tailwindcss --watch src/App.css -o src/App.generated.css",
+    "build:tailwind": "tailwindcss build -i src/App.css -o src/App.generated.css",
     "prestart": "npm run build:tailwind",
     "prebuild": "npm run build:tailwind && npm run lint && npm run svglint",
     "start": "react-scripts start",
