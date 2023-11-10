@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "LM317 Calculator",
+  "name": "Noe Nieto's simple LM317 calculator",
   "icons": [
     {
       "src": "favicon.ico",
