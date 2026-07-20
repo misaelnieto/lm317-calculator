@@ -12,8 +12,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "eslint src/**/*.{js,jsx}",
-    "svglint": "svglint src/**/*.svg"
+    "lint": "eslint src/**/*.{js,jsx}"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -23,8 +22,6 @@
     "@vitejs/plugin-react": "^6.0.3",
     "eslint-plugin-react": "^7.33.2",
     "jsdom": "^29.1.1",
-    "react-devtools": "^4.28.5",
-    "svglint": "^2.6.0",
     "tailwindcss": "^4.3.3",
     "vite": "^8.1.5",
     "vitest": "^4.1.10"
