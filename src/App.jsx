@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.generated.css';
+import './App.css';
 import {Circuit, nFormatter} from './Circuit';
 import SiteFooter from './Footer';
 

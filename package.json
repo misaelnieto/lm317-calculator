@@ -4,19 +4,17 @@
   "private": true,
   "dependencies": {
     "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "tailwindcss": "^3.3.5"
+    "react-dom": "^19.2.7"
   },
   "scripts": {
     "dev": "vite",
-    "build": "bun run build:tailwind && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src/**/*.{js,jsx}",
-    "svglint": "svglint src/**/*.svg",
-    "build:tailwind": "tailwindcss build -i src/App.css -o src/App.generated.css",
-    "tailwind:watch": "tailwindcss --watch src/App.css -o src/App.generated.css"
+    "svglint": "svglint src/**/*.svg"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
@@ -24,6 +22,7 @@
     "eslint-plugin-react": "^7.33.2",
     "react-devtools": "^4.28.5",
     "svglint": "^2.6.0",
+    "tailwindcss": "^4.3.3",
     "vite": "^8.1.5"
   }
 }
