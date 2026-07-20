@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.generated.css';
-import {Circuit, nFormatter} from './Circuit.js';
-import SiteFooter from './Footer.js';
+import {Circuit, nFormatter} from './Circuit';
+import SiteFooter from './Footer';
 
 const VOUT_MIN = 1.25;
 const VOUT_MAX = 35;
