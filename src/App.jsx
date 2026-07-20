@@ -37,7 +37,7 @@ export default function App() {
 
   function handleVinChange(evt) {
     setVin(parseFloat(evt.target.value))
-    setVout(computeVout)
+    setVout(computeVout())
   }
 
   return (
