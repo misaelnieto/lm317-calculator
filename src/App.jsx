@@ -21,23 +21,26 @@ export default function App() {
   const [Vout, setVout] = useState(computeVout());
 
 
-  function computeVout() {
-    return clamp(clamp(V_REF * (1 + R2 / R1) + I_ADJ * R2, VOUT_MIN, Vin), VOUT_MIN, VOUT_MAX);
+  function computeVout(r1 = R1, r2 = R2, vin = Vin) {
+    return clamp(clamp(V_REF * (1 + r2 / r1) + I_ADJ * r2, VOUT_MIN, vin), VOUT_MIN, VOUT_MAX);
   }
 
   function handleR1Change(evt) {
-    setR1(parseFloat(evt.target.value))
-    setVout(computeVout())
+    const newR1 = parseFloat(evt.target.value)
+    setR1(newR1)
+    setVout(computeVout(newR1))
   }
 
   function handleR2Change(evt) {
-    setR2(parseFloat(evt.target.value))
-    setVout(computeVout())
+    const newR2 = parseFloat(evt.target.value)
+    setR2(newR2)
+    setVout(computeVout(undefined, newR2))
   }
 
   function handleVinChange(evt) {
-    setVin(parseFloat(evt.target.value))
-    setVout(computeVout())
+    const newVin = parseFloat(evt.target.value)
+    setVin(newVin)
+    setVout(computeVout(undefined, undefined, newVin))
   }
 
   return (
