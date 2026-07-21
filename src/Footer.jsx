@@ -7,7 +7,7 @@ export default function SiteFooter() {
         </span>
         <nav className="footer-links">
           <a href="https://noenieto.com/">Website</a>
-          <a href="https://blog.noenieto.com">Blog</a>
+          <a href="https://noenieto.com/blog/">Blog</a>
           <a href="https://noenieto.com/demos">Demos</a>
           <a href="https://github.com/misaelnieto">GitHub</a>
           <a href="https://www.linkedin.com/in/noe-nieto/">LinkedIn</a>
