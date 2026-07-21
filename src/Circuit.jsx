@@ -31,73 +31,74 @@ export function Circuit({Vin, c_in, i_adj, r_1, r_2, c_out, Vout}) {
       <style>
         {`
       #background {
-        fill: #fff;
+        fill: #FDFCF0;
       }
       #lm317 rect{
-        fill: skyblue; stroke: blue; stroke-width: 3;
+        fill: #E8E0D0; stroke: #1C1C19; stroke-width: 3;
       }
-  
+
       #lm317 text {
-        font-size: 1.2em;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 1.1em;
         font-weight: bold;
-        stroke: blue;
+        stroke: #1C1C19;
       }
-  
-  
+
+
       #V_in circle {
-        stroke: #000;
+        stroke: #1C1C19;
         stroke-width: 5px;
-        fill: #e8e490;
+        fill: #F5F3E8;
       }
-  
+
       #V_in .plus-minus, #V_out .plus-minus {
         font-weight: bold;
       }
-  
+
       #V_out .readout-bg {
-        stroke: #000;
+        stroke: #1C1C19;
         stroke-width: 4px;
-        fill: #000;
+        fill: #1C1C19;
       }
       #V_out .readout-text {
         fill: #66ff94;
         font-family: monospace;
         font-size: smaller;
       }
-  
+
       #I_adj {
-        stroke: blue;
+        stroke: #1C1C19;
         stroke-width: 2px;
       }
       #arrow {
-        stroke: blue;
-        fill: blue;
+        stroke: #1C1C19;
+        fill: #1C1C19;
       }
-  
+
       .gnd path, .connector{
-        stroke: black;
+        stroke: #1C1C19;
         stroke-width: 4px;
         fill: none;
       }
 
       .actual_value {
         font-family: monospace;
-        font-weight: light;
+        font-weight: normal;
         stroke: none;
-        fill: #f00;
+        fill: #E65100;
         font-size: 0.7em;
       }
 
       path.resistor {
         fill: none;
-        stroke: #c8b080;
+        stroke: #B09070;
         stroke-width: 4px;
       }
 
       path.capacitor {
         fill: none;
         stroke-width: 4px;
-        stroke: #7b9971;
+        stroke: #6B8960;
       }
     `}
       </style>
@@ -221,7 +222,7 @@ export function Circuit({Vin, c_in, i_adj, r_1, r_2, c_out, Vout}) {
         <text id="Vin_value" x="60" y="10" className="actual_value">
           ({nFormatter(Vin, 2)} V)
         </text>
-        <path stroke="#000000" strokeWidth="4" d="M 50,0 v 25 M 50,75 v 25" />
+        <path stroke="#1C1C19" strokeWidth="4" d="M 50,0 v 25 M 50,75 v 25" />
       </g>
       <g id="V_out" transform="translate(500,63)">
         <circle className="readout-bg" cx="50" cy="50" r="25" />
@@ -234,7 +235,7 @@ export function Circuit({Vin, c_in, i_adj, r_1, r_2, c_out, Vout}) {
             out
           </tspan>
         </text>
-        <path stroke="#000000" strokeWidth="4" d="M 50,0 v 25 M 50,75 v 25" />
+        <path stroke="#1C1C19" strokeWidth="4" d="M 50,0 v 25 M 50,75 v 25" />
       </g>
       <g id="I_adj" transform="translate(200,120)">
         <line

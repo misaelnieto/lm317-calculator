@@ -1,13 +1,61 @@
+/* Design System: The Intellectual Artifact
+   19th-century scholarly monograph aesthetic */
+
+:root {
+  /* Colors — ink-on-paper palette */
+  --background: #FDFCF0;
+  --on-surface: #1C1C19;
+  --rubric: #E65100;
+  --rubric-dark: #BF4200;
+  --surface-low: #F5F3E8;
+  --surface-high: #EDE9D8;
+  --outline: #777777;
+  --on-primary: #FFFFFF;
+  --muted: #5A5A56;
+
+  /* Typography */
+  --font-serif: 'Newsreader', 'Georgia', serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* Spacing scale */
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1.4rem;
+  --spacing-6: 2rem;
+  --spacing-8: 3rem;
+  --spacing-12: 4rem;
+  --spacing-24: 8.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--on-surface);
+  background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--on-surface);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--rubric);
+}
+
+sub {
+  font-size: 0.75em;
 }

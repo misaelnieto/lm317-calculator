@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import {Circuit, nFormatter} from './Circuit';
+import { Circuit, nFormatter } from './Circuit';
 import SiteFooter from './Footer';
 
 const VOUT_MIN = 1.25;
@@ -10,7 +10,7 @@ const C_OUT = 1e-6;
 const I_ADJ = 50e-6;
 const V_REF = 1.25;
 
-function clamp (num, min, max) {
+function clamp(num, min, max) {
   return Math.min(Math.max(num, min), max);
 }
 
@@ -20,148 +20,152 @@ export default function App() {
   const [Vin, setVin] = useState(12);
   const [Vout, setVout] = useState(computeVout());
 
-
   function computeVout(r1 = R1, r2 = R2, vin = Vin) {
-    return clamp(clamp(V_REF * (1 + r2 / r1) + I_ADJ * r2, VOUT_MIN, vin), VOUT_MIN, VOUT_MAX);
+    return clamp(
+      clamp(V_REF * (1 + r2 / r1) + I_ADJ * r2, VOUT_MIN, vin),
+      VOUT_MIN,
+      VOUT_MAX
+    );
   }
 
   function handleR1Change(evt) {
-    const newR1 = parseFloat(evt.target.value)
-    setR1(newR1)
-    setVout(computeVout(newR1))
+    const newR1 = parseFloat(evt.target.value);
+    setR1(newR1);
+    setVout(computeVout(newR1));
   }
 
   function handleR2Change(evt) {
-    const newR2 = parseFloat(evt.target.value)
-    setR2(newR2)
-    setVout(computeVout(undefined, newR2))
+    const newR2 = parseFloat(evt.target.value);
+    setR2(newR2);
+    setVout(computeVout(undefined, newR2));
   }
 
   function handleVinChange(evt) {
-    const newVin = parseFloat(evt.target.value)
-    setVin(newVin)
-    setVout(computeVout(undefined, undefined, newVin))
+    const newVin = parseFloat(evt.target.value);
+    setVin(newVin);
+    setVout(computeVout(undefined, undefined, newVin));
   }
 
   return (
-    <div className="App bg-gradient-to-r from-cyan-500 to-blue-500">
-      <header className='text-center'>
-        <h1 className="text-gray-900 text-3xl title-font font-medium mb-4">LM317 Calculator</h1>
+    <div className="app">
+      <header className="app-header">
+        <h1>LM317 Calculator</h1>
+        <p className="subtitle">Adjustable Voltage Regulator &mdash; Interactive Schematic</p>
       </header>
-      <section className="text-gray-700 body-font relative">
-        <div className="px-5 py-24 mx-auto flex flex-col md:flex-row text-center">
-          <div className="md:basis-1/2 lg:basis-2/3 md:pt-8 bg-white">
-            <Circuit
-              Vin={Vin}
-              c_in={C_IN}
-              i_adj={I_ADJ}
-              r_1={R1}
-              r_2={R2}
-              c_out={C_OUT}
-              Vout={Vout}
-            />
+
+      <section className="app-body">
+        <div className="circuit-panel">
+          <Circuit
+            Vin={Vin}
+            c_in={C_IN}
+            i_adj={I_ADJ}
+            r_1={R1}
+            r_2={R2}
+            c_out={C_OUT}
+            Vout={Vout}
+          />
+        </div>
+
+        <div className="controls-panel">
+          {/* V_in */}
+          <div className="field-row">
+            <label className="field-label" htmlFor="V_in">
+              V<sub>in</sub>
+            </label>
+            <div className="field-value">
+              {nFormatter(Vin, 2)} V
+              <input
+                type="range"
+                id="V_in"
+                name="V_in"
+                min="3"
+                max="40"
+                value={Vin}
+                onChange={handleVinChange}
+              />
+            </div>
           </div>
-          <div className="md:basis-1/2 lg:basis-1/3 md:pt-8 bg-white px-8 md:px-0">
-            {/* V_in */}
-            <div className="md:flex md:items-center mb-6">
-              <div className="md:w-1/4">
-                <p className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                  V<sub>IN</sub>
-                </p>
-              </div>
-              <div className="md:w-3/4 md:mr-3">
-                <label htmlFor="V_in">{nFormatter(Vin, 2)} V</label>
-                <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                  name="V_in" id="V_in"
-                  type="range" min="3" max="40" value={Vin} onChange={handleVinChange}
-                  list="e12-resistors" />
-              </div>
+
+          {/* C_in */}
+          <div className="field-row">
+            <span className="field-label">
+              C<sub>in</sub>
+            </span>
+            <span className="field-value readonly">
+              {nFormatter(C_IN, 2)}F &nbsp;(ceramic or tantalum)
+            </span>
+          </div>
+
+          {/* C_out */}
+          <div className="field-row">
+            <span className="field-label">
+              C<sub>out</sub>
+            </span>
+            <span className="field-value readonly">
+              {nFormatter(C_OUT, 2)}F
+            </span>
+          </div>
+
+          {/* I_adj */}
+          <div className="field-row">
+            <span className="field-label">
+              I<sub>adj</sub>
+            </span>
+            <span className="field-value readonly">
+              {nFormatter(I_ADJ)}A
+            </span>
+          </div>
+
+          {/* R_1 */}
+          <div className="field-row">
+            <label className="field-label" htmlFor="R_1">
+              R<sub>1</sub>
+            </label>
+            <div className="field-value">
+              {nFormatter(R1, 2)} &Omega;
+              <input
+                type="range"
+                id="R_1"
+                name="R_1"
+                min="100"
+                max="500"
+                value={R1}
+                onChange={handleR1Change}
+              />
             </div>
-            {/* C_in */}
-            <div className="md:flex md:items-center mb-6">
-              <div className="md:w-1/4">
-                <p className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                  C<sub>IN</sub>
-                </p>
-              </div>
-              <div className="md:w-3/4 md:mr-3">
-                <p className="text-xs bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700">
-                  {nFormatter(C_IN,2)}F (ceramic or tantalum)
-                </p>
-              </div>
+          </div>
+
+          {/* R_2 */}
+          <div className="field-row">
+            <label className="field-label" htmlFor="R_2">
+              R<sub>2</sub>
+            </label>
+            <div className="field-value">
+              {nFormatter(R2, 2)} &Omega;
+              <input
+                type="range"
+                id="R_2"
+                name="R_2"
+                min="1"
+                max="2500"
+                value={R2}
+                onChange={handleR2Change}
+              />
             </div>
-            {/* C_out */}
-            <div className="md:flex md:items-center mb-6">
-              <div className="md:w-1/4">
-                <p className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                  C<sub>OUT</sub>
-                </p>
-              </div>
-              <div className="md:w-3/4 md:mr-3">
-                <p className="text-xs bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700">
-                  {nFormatter(C_OUT, 2)}F
-                </p>
-              </div>
-            </div>
-            {/* I_adj */}
-            <div className="md:flex md:items-center mb-6">
-              <div className="md:w-1/4">
-                <p className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                  I<sub>ADJ</sub>
-                </p>
-              </div>
-              <div className="md:w-3/4 md:mr-3">
-                <p className="text-xs bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700">
-                  {nFormatter(I_ADJ)}A
-                </p>
-              </div>
-            </div>
-            {/* R_1 */}
-            <div className="md:flex md:items-center mb-6">
-              <div className="md:w-1/4">
-                <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="R_1">
-                  R<sub>1</sub>
-                </label>
-              </div>
-              <div className="md:w-3/4 md:mr-3">
-              <label htmlFor="R_1">{nFormatter(R1, 2)} &Omega;</label>
-                <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                  name="R_1" id="R_1"
-                  type="range" min="100" max="500" value={R1} onChange={handleR1Change}
-                  />
-              </div>
-            </div>
-            {/* R_2 */}
-            <div className="md:flex md:items-center mb-6">
-              <div className="md:w-1/4">
-                <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="R_2">
-                  R<sub>2</sub>
-                </label>
-              </div>
-              <div className="md:w-3/4 md:mr-3">
-                <label htmlFor="R_2">{nFormatter(R2, 2)} &Omega;</label>
-                <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                  name="R_2" id="R_2"
-                  type="range" min="1" max="2500" value={R2} onChange={handleR2Change}
-                  />
-              </div>
-            </div>
-            {/* V_out */}
-            <div className="md:flex md:items-center mb-6">
-              <div className="md:w-1/4">
-                <p className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                  V<sub>out</sub>
-                </p>
-              </div>
-              <div className="md:w-3/4 md:mr-3">
-                <p id="V_out_sidebar" className="text-xs bg-green-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700">
-                  {nFormatter(Vout, 2)}
-                </p>
-              </div>
-            </div>
+          </div>
+
+          {/* V_out */}
+          <div className="field-row">
+            <span className="field-label">
+              V<sub>out</sub>
+            </span>
+            <span className="field-value output" id="V_out_sidebar">
+              {nFormatter(Vout, 2)} V
+            </span>
           </div>
         </div>
       </section>
+
       <SiteFooter />
     </div>
   );
